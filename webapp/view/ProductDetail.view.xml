@@ -1,0 +1,22 @@
+<mvc:View controllerName="project1.controller.ProductDetail"
+    xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page id="productDetailPage" title="Product Detail" showNavButton="true" navButtonPress="onNavBack">
+    <headerContent>
+        <Button id="editButton" icon="sap-icon://edit" text="Edit" press="onEditProduct"/>
+    </headerContent>
+    <content>
+        <VBox id="detailBox" class="sapUiMediumMargin">
+            <ObjectHeader id="objHeader" title="{ProductName}" number="{UnitPrice}" numberUnit="USD">
+                <attributes>
+                    <ObjectAttribute id="attrStock" title="Units In Stock" text="{UnitsInStock}"/>
+                    <ObjectAttribute id="attrOrdered" title="Units On Order" text="{UnitsOnOrder}"/>
+                    <ObjectAttribute id="attrQty" title="Quantity Per Unit" text="{QuantityPerUnit}"/>
+                </attributes>
+                <statuses>
+                    <ObjectStatus id="statusDiscontinued" text="{= ${Discontinued} ? 'Discontinued' : 'Active'}" state="{= ${Discontinued} ? 'Error' : 'Success'}"/>
+                </statuses>
+            </ObjectHeader>
+        </VBox>
+    </content>
+</Page>
+</mvc:View>

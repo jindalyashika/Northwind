@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout.form">
+    <Dialog id="createProductDialog" title="Add Item" contentWidth="700px">
+        <content>
+            <l:SimpleForm id="createProductForm"
+                editable="true"
+                layout="ColumnLayout"
+                columnsL="2"
+                columnsM="2"
+                labelSpanL="5"
+                labelSpanM="5">
+
+                <Label id="ContractItemId" text="ContractItem Id" required="true"/>
+                <Input id="ContractItem Id"
+                    value="{ContractItemId>/CARTDETAILFT}"
+                    placeholder="Enter product name"
+                    maxLength="40"/>
+
+                <Label id="lblSupplier" text="Supplier ID"/>
+                <Input id="inputSupplier"
+                    value="{newProduct>/SupplierID}"
+                    placeholder="e.g. 1"
+                    type="Number"/>
+
+                <Label id="lblCategory" text="Category ID"/>
+                <Input id="inputCategory"
+                    value="{newProduct>/CategoryID}"
+                    placeholder="e.g. 1"
+                    type="Number"/>
+
+                <Label id="lblQtyPerUnit" text="Quantity Per Unit"/>
+                <Input id="inputQtyPerUnit"
+                    value="{newProduct>/QuantityPerUnit}"
+                    placeholder="e.g. 10 boxes x 20 bags"
+                    maxLength="20"/>
+
+                <Label id="lblPrice" text="Unit Price" required="true"/>
+                <Input id="inputPrice"
+                    value="{newProduct>/UnitPrice}"
+                    placeholder="0.00"
+                    type="Number"/>
+
+                <Label id="lblStock" text="Units In Stock"/>
+                <Input id="inputStock"
+                    value="{newProduct>/UnitsInStock}"
+                    placeholder="0"
+                    type="Number"/>
+
+                <Label id="lblOnOrder" text="Units On Order"/>
+                <Input id="inputOnOrder"
+                    value="{newProduct>/UnitsOnOrder}"
+                    placeholder="0"
+                    type="Number"/>
+
+                <Label id="lblReorder" text="Reorder Level"/>
+                <Input id="inputReorder"
+                    value="{newProduct>/ReorderLevel}"
+                    placeholder="0"
+                    type="Number"/>
+
+                <Label id="lblDiscontinued" text="Discontinued"/>
+                <CheckBox id="checkDiscontinued" selected="{newProduct>/Discontinued}"/>
+
+            </l:SimpleForm>
+        </content>
+        <beginButton>
+            <Button id="saveProductButton" text="Add" type="Emphasized" icon="sap-icon://save" press="onSaveProduct"/>
+        </beginButton>
+        <endButton>
+            <Button id="cancelProductButton" text="Cancel" press="onCancelProduct"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

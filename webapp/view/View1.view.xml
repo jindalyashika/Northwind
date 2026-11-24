@@ -1,0 +1,41 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page id="productListPage" title="{i18n>appTitle}">
+    <subHeader>
+        <Toolbar id="productToolbar">
+            <SearchField id="searchField" width="50%" liveChange="onSearch"/>
+            <ToolbarSpacer id="toolbarSpacer"/>
+                <Button id="sortButton" text="Sort by Price" press="onSort"/>
+                <Button id="addButton" icon="sap-icon://add" text="Add" type="Emphasized" press="onAddProduct"/>
+
+        </Toolbar>
+    </subHeader>
+        <content>
+            <Table id="productTable" items="{/Products}" growing="true" growingThreshold="20">
+                <columns>
+                    <Column id="colName">
+                        <Text id="colNameText" text="Product Name"/>
+                    </Column>
+                    <Column id="colPrice">
+                        <Text id="colPriceText" text="Unit Price"/>
+                    </Column>
+                    <Column id="colStock">
+                        <Text id="colStockText" text="Stock"/>
+                    </Column>
+                    <Column id="colDelete"><Text id="colDeleteText" text=""/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="productItem" type="Navigation" press="onProductPress">
+                        <cells>
+                            <Text id="nameText" text="{ProductName}"/>
+                            <Text id="priceText" text="{UnitPrice}"/>
+                            <ObjectStatus id="stockStatus" text="{UnitsInStock}" state="{= ${UnitsInStock} > 20 ? 'Success' : 'Warning'}"/>
+                            <Button id="deleteButton" icon="sap-icon://delete" type="Transparent" press="onDeleteProduct"/>
+
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
